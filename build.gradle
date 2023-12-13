@@ -1,22 +1,12 @@
-buildscript {
-	repositories {
-		gradlePluginPortal()
-	}
-	dependencies {
-		classpath 'com.bmuschko:gradle-docker-plugin:6.7.0'
-	}
-}
-
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.0.6'
-	id 'io.spring.dependency-management' version '1.1.0'
-	id 'com.bmuschko.docker-remote-api' version '7.0.1'
+	id 'org.springframework.boot' version '3.2.0'
+	id 'io.spring.dependency-management' version '1.1.4'
+	id 'com.bmuschko.docker-remote-api' version "9.3.7"
 }
 
 group = 'me.steffenjacobs'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '20'
 
 configurations {
 	compileOnly {
@@ -31,9 +21,9 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
+	compileOnly 'org.projectlombok:lombok:1.18.30'
 	runtimeOnly 'org.postgresql:postgresql'
-	annotationProcessor 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok:1.18.30'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
@@ -42,9 +32,9 @@ tasks.named('test') {
 }
 
 java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(20))
-    }
+	toolchain {
+		languageVersion.set(JavaLanguageVersion.of(21))
+	}
 }
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 

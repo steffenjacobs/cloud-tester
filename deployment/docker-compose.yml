@@ -2,7 +2,7 @@ version: '3.8'
 services:
   db:
     container_name: pg_container
-    image: postgres
+    image: postgres:16.1-alpine3.19
     restart: always
     environment:
       POSTGRES_USER: root
@@ -15,7 +15,7 @@ services:
 
   pgadmin:
     container_name: pgadmin4_container
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:8.0
     restart: always
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
